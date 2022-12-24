@@ -1,12 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <title>Scratch Card</title>
+    <style type="text/css">
+      html {
+        box-sizing: border-box;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+      .scratchpad {
+        width: 450px;
+        height: 445px;
+        border: solid 10px #ffffff;
+        margin: 0 auto;
+      }
+      body {
+        background: #efefef;
+      }
+      .scratch-container {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 100%;
+      }
+      @media only screen and (max-width: 480px) {
+        .scratchpad {
+          width: 400px;
+          height: 396px;
+        }
+        .scratch-container {
+          width: 400px !important;
+        }
+      }
+
+      /* Custom, iPhone Retina */
+      @media only screen and (max-width: 320px) {
+        .scratchpad {
+          width: 290px;
+          height: 287px;
+        }
+        .scratch-container {
+          width: 290px !important;
+        }
+      }
+      .btn {
+        background: #56cfd2;
+        color: #fff;
+        padding: 10px 25px;
+        display: inline-block;
+        margin-top: 15px;
+        text-decoration: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radiuss: 3px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello world!</h1>
+    <div class="scratch-container">
+      <div id="promo" class="scratchpad"></div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-latest.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://jennamolby.com/scratch-and-win/js/wScratchPad.min.js"
+    ></script>
+
+    <script type="text/javascript">
+      const selectBG = "reveal.png";
+
+      $("#promo").wScratchPad({
+        // the size of the eraser
+        size: 70,
+        // the randomized scratch image
+        bg: selectBG,
+        // give real-time updates
+        realtime: true,
+        // The overlay image
+        fg: "present.png",
+      });
+    </script>
   </body>
 </html>
